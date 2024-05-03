@@ -1,0 +1,40 @@
+.bookblock {
+  display: flex;
+  border: 0.1px solid gray;
+  border-radius: 5%;
+  width: 300px;
+  height: 400px;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  transform: scale(1);
+  transition:  .2s;
+}
+
+.bookblock:hover {
+  transform: scale(1.05);
+  transition:  .3s;
+}
+
+.bookblockImg {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.bookblockImg img {
+  border: 0.1px solid grey;
+  max-height: 100%;
+  width: auto;
+}
+.bookblockInfo {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  flex-direction: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+

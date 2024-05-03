@@ -1,0 +1,9 @@
+.booksMoreBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.button {
+  display: flex;
+  justify-content: center;
+}
