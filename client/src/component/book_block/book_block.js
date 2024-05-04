@@ -1,5 +1,5 @@
 
-export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, currentNote }) {
+export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, currentNote, setbooksInfo }) {
 
   function handleEdit(event) {
     event.preventDefault();
@@ -8,8 +8,6 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
     const newAuthor = prompt('новый автор', authorName)
     const newImage = prompt('ссылка на изображение', imageLink)
     const userNote = prompt('заметка', currentNote)
-
-
     const bookEdit = fetch
       ('http://localhost:8080/books_edit'
         + '?id=' + bookId
@@ -23,6 +21,14 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
       .then((response) => response.json())
       .then((data) => {
       });
+
+    const bookSearchResult = fetch("http://localhost:8080/books");
+    bookSearchResult
+      .then((response) => response.json())
+      .then((data) => {
+        setbooksInfo(data);
+        console.log(data);
+      });
   }
 
   function handleDelete(event) {
@@ -32,6 +38,14 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
       .then((response) => response.json())
       .then((data) => {
       });
+
+      const bookSearchResult = fetch("http://localhost:8080/books");
+      bookSearchResult
+        .then((response) => response.json())
+        .then((data) => {
+          setbooksInfo(data);
+          console.log(data);
+        });
   }
 
   function handleInfo(event) {

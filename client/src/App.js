@@ -18,6 +18,7 @@ function App() {
       <div className="booksMoreBlock">
         {booksInfo.map(({ volumeInfo, _id }) => (
           <BookBlock
+            setbooksInfo={setbooksInfo}
             key={_id}
             bookId={_id}
             bookName={volumeInfo?.title}

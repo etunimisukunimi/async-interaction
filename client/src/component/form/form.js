@@ -21,6 +21,14 @@ export function Form({ setbooksInfo }) {
       .then((response) => response.json())
       .then((data) => {
       });
+
+      const bookSearchResult = fetch("http://localhost:8080/books");
+    bookSearchResult
+      .then((response) => response.json())
+      .then((data) => {
+        setbooksInfo(data);
+        console.log(data);
+      });
   }
 
   function handleSubmit(event) {
@@ -35,28 +43,10 @@ export function Form({ setbooksInfo }) {
     const button = document.getElementById('send_button');
     button.style.visibility = 'hidden';
   }
-  function handleAuth(event) {
-    event.preventDefault();
-    const inputForm = document.getElementById('inputForm');
-    const inputButton = document.getElementById('input_button');
-    const addButton = document.getElementById('add_button');
-    inputForm.style.visibility = 'hidden';
-    inputButton.style.visibility = 'hidden';
-    addButton.style.visibility = 'visible';
-  }
-
-
 
   return (
     <div className="nav_block">
       <h1>ajax</h1>
-      <form id='inputForm' onSubmit={handleAuth}>
-      login:
-      <input></input>
-      password:
-      <input></input>
-      <button id='input_button' onClick={handleAuth}>войти</button>
-      </form>
       <div className='add_button'>
       <button id='add_button' onClick={handleBook}>добавить запись</button>
       </div>
