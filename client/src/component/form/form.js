@@ -33,7 +33,7 @@ export function Form({ setbooksInfo }) {
       });
     }
 
-    setTimeout(bookTimeout, 1500);
+    setTimeout(bookTimeout, 2000);
   }
 
   function handleSubmit(event) {

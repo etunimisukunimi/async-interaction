@@ -32,7 +32,7 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
         });
       }
   
-      setTimeout(bookTimeout, 1500);
+      setTimeout(bookTimeout, 2000);
   }
 
   function handleDelete(event) {
@@ -53,7 +53,7 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
         });
       }
   
-      setTimeout(bookTimeout, 1500);
+      setTimeout(bookTimeout, 2000);
   }
 
   function handleInfo(event) {
