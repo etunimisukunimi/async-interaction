@@ -22,13 +22,17 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
       .then((data) => {
       });
 
-    const bookSearchResult = fetch("http://localhost:8080/books");
-    bookSearchResult
-      .then((response) => response.json())
-      .then((data) => {
-        setbooksInfo(data);
-        console.log(data);
-      });
+      function bookTimeout () {
+        const bookSearchResult = fetch("http://localhost:8080/books");
+      bookSearchResult
+        .then((response) => response.json())
+        .then((data) => {
+          setbooksInfo(data);
+          console.log(data);
+        });
+      }
+  
+      setTimeout(bookTimeout, 1500);
   }
 
   function handleDelete(event) {
@@ -39,13 +43,17 @@ export function BookBlock({ bookId, categorie, bookName, authorName, imageLink, 
       .then((data) => {
       });
 
-      const bookSearchResult = fetch("http://localhost:8080/books");
+      function bookTimeout () {
+        const bookSearchResult = fetch("http://localhost:8080/books");
       bookSearchResult
         .then((response) => response.json())
         .then((data) => {
           setbooksInfo(data);
           console.log(data);
         });
+      }
+  
+      setTimeout(bookTimeout, 1500);
   }
 
   function handleInfo(event) {

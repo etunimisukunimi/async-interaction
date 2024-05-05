@@ -1,11 +1,26 @@
 const express = require("express");
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId, ServerApiVersion } = require('mongodb');
 
-// url database
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+const uri = "mongodb+srv://admin:admin@infobooks.tpjbqfz.mongodb.net/?retryWrites=true&w=majority&appName=infobooks";
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
-// название базы данных
+async function run() {
+  try {
+    await client.connect();
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
 const dbName = 'infobooks';
 
 async function getBooks() {
@@ -81,7 +96,6 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
 
-///
 
 app.get("/books", (req, res) => {
     res.set('Access-Control-Allow-Origin', '*')

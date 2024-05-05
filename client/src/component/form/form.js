@@ -9,6 +9,7 @@ export function Form({ setbooksInfo }) {
     const setImage = prompt('ссылка на изображение')
     const userNote = prompt('заметка')
 
+
     const bookAdd = fetch
       ('http://localhost:8080/books_add'
         + '?setCategorie=' + setCategorie
@@ -22,6 +23,7 @@ export function Form({ setbooksInfo }) {
       .then((data) => {
       });
 
+      function bookTimeout () {
       const bookSearchResult = fetch("http://localhost:8080/books");
     bookSearchResult
       .then((response) => response.json())
@@ -29,6 +31,9 @@ export function Form({ setbooksInfo }) {
         setbooksInfo(data);
         console.log(data);
       });
+    }
+
+    setTimeout(bookTimeout, 1500);
   }
 
   function handleSubmit(event) {
